@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="1006231719@qq.com">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/jquery.qtip.min.css" rel="stylesheet">
+    <link href="./css/app.min.css" rel="stylesheet">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/data.json"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-font">
+                    无线系统部介绍
+                    <div style="text-align: right"><a class="text-right" href="../../">返回主页</a></div>
+                    <p><span>快速行动</span> <span>协作创新</span> <span>说到做到</span></p>
+                </div>
+                <!---------------------自定义内容由此开始--------------------->
+
+            </div>
+            <!---------------------自定义内容由此结束--------------------->
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script>
+    var wrapPanelHeading = $(".panel-default"),
+            panelTail = $('<div class="panel-body"><br><p><a href="javascript:;">语娟手工打造</a> </p></div>');
+    var ajaxSuccess = function (data) {
+        if (data.status == "success") {
+            var panel = $("<div class='panel-body'></div>"),
+                    str = '',
+                    imgParth = null;
+            $.each(data.value, function (index, items) {
+                imgParth = items.imgParth;
+                str += '<h4>' + items.title + '</h4>';
+                $.each(items.users, function (index, item) {
+                    str += '<div class="media">\
+                                    <div class="media-left">\
+                                        <img class="media-object img-circle" src="img/' + imgParth + '/' + item.img + '.jpg" width="200" height="200" />\
+                                    </div>\
+                                    <div class="media-body">\
+                                        <h5 class="media-heading">' + item.username + '</h5>\
+                                        <p>\
+                                            ' + item.introduce + '\
+                                        </p>\
+                                    </div>\
+                                </div>';
+                });
+            });
+            panel.append(str);
+            wrapPanelHeading.append(panel).append(panelTail);
+        }
+
+    };
+    //Query
+    $.ajax({
+        url: '/users',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            ajaxSuccess(data);
+        },
+        error: function (xhr, status, err) {
+            console.error(err);
+        }
+    });
+</script>
+</html>

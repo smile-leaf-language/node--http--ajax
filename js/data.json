@@ -1,0 +1,39 @@
+[
+  {
+    "title": "无线Androind开发组",
+    "imgParth": "android",
+    "users": [
+      {
+        "username": "张三",
+        "introduce": "货架产品线负责人，主要负责货架产品线需求开发，以及技术优化。",
+        "img": "张三"
+      },
+      {
+        "username": "李四",
+        "introduce": "会员产品线负责人，主要负责会员产品线需求开发，以及技术优化。",
+        "img": "李四"
+      }
+    ]
+  },
+  {
+    "title": "无线IOS开发组",
+    "imgParth": "ios",
+    "users": [
+      {
+        "username": "小王",
+        "introduce": "iOS工程师，金融组，主要负责p2p、固收、票据、白拿等模块。",
+        "img": "小王"
+      },
+      {
+        "username": "小赵",
+        "introduce": "iOS工程师，会员组，主要负责会员中心、登录、注册、设置等模块。",
+        "img": "小赵"
+      },
+      {
+        "username": "小帅",
+        "introduce": "主要负责海外购相关工作。",
+        "img": "小帅"
+      }
+    ]
+  }
+]
